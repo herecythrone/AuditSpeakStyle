@@ -1,0 +1,61 @@
+{
+  "version": "0.2.0",
+  "date": "2026-09-22",
+  "environment": {
+    "os": "Linux",
+    "python": "3.13.5",
+    "pyyaml": "6.0.3"
+  },
+  "static_validation": {
+    "status": "passed",
+    "stats": {
+      "description_characters": 158,
+      "behavior_cases_defined": 44,
+      "examples_defined": 30,
+      "upstream_files_reviewed": 12,
+      "adaptation_decisions": 26,
+      "core_rule_ids": 26,
+      "files_checked": 35,
+      "markdown_files_checked": 20
+    }
+  },
+  "yaml_parse": {
+    "status": "passed",
+    "name": "audit-speak-style",
+    "description_characters": 158
+  },
+  "python_syntax_files": 5,
+  "unit_tests": {
+    "run": 54,
+    "failures": 0,
+    "errors": 0,
+    "status": "passed",
+    "kind": "tool regression, not LLM behavior",
+    "output": "tool-test-output.txt"
+  },
+  "license_git_blob_sha": "fdb09f36c442491f6c69832c67ff09260ecde213",
+  "answer_free_export": {
+    "executed": true,
+    "explicit_inputs": 41,
+    "implicit_inputs": 44,
+    "model_calls": 0
+  },
+  "semantic_review": {
+    "reviewer": "same authoring assistant",
+    "kind": "reference answers and writing review only",
+    "independent_model_runs": 0
+  },
+  "not_executed": [
+    "Windows installation",
+    "Codex installation/loading/trigger behavior",
+    "independent LLM behavior benchmark",
+    "independent expert review",
+    "full legal rights audit"
+  ],
+  "limitations": [
+    "reference examples overlap some evaluation inputs",
+    "external links not checked by static script",
+    "only upstream LICENSE bytes independently rehashed locally",
+    "PDF sample retrieval and screenshot limits recorded in source-research.md"
+  ]
+}

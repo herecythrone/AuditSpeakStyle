@@ -1,0 +1,17 @@
+.git/
+.venv/
+venv/
+__pycache__/
+*.pyc
+.agents/
+.claude/
+.codex/
+private/
+local-runs/
+.DS_Store
+Thumbs.db
+local-reference/
+work/
+.env
+.env.*
+docs/CHAT_HANDOFF.md
