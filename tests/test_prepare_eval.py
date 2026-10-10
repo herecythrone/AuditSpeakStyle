@@ -24,7 +24,7 @@ class ExportTests(unittest.TestCase):
         return [json.loads(x) for x in (self.out/name).read_text(encoding='utf-8').splitlines()]
 
     def test_counts_and_no_model_calls(self):
-        self.assertEqual(self.stats,{'explicit_inputs':41,'implicit_inputs':44,'model_calls':0})
+        self.assertEqual(self.stats,{'explicit_inputs':53,'implicit_inputs':56,'model_calls':0})
 
     def test_only_id_and_input_exported(self):
         for name in ('explicit-inputs.jsonl','implicit-routing-inputs.jsonl'):

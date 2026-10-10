@@ -79,7 +79,7 @@ python scripts/validate.py --check-manifest
 
 工具仅依赖Python3.10及以上标准库。静态检查覆盖包结构、UTF-8/LF、受限YAML、相对链接、案例字段、规则/来源/测试引用及上游许可字节；不判断每条中文结论是否正确。
 
-[44例行为测试](tests/cases.md)含完整输入、参考答案与硬性失败；[作者逐义自检](tests/author-review.md)不是独立模型测试。可用`python scripts/prepare_eval.py --out local-runs/blind-inputs`导出不含参考答案的请求，**不会调用模型**。案例与教学示例有重叠，不代表未见任务的泛化评估。
+[56例行为测试](tests/cases.md)含完整输入、参考答案与硬性失败；[作者逐义自检](tests/author-review.md)不是独立模型测试。可用`python scripts/prepare_eval.py --out local-runs/blind-inputs`导出不含参考答案的请求，**不会调用模型**。案例与教学示例有重叠，不代表未见任务的泛化评估。
 
 实际命令、结果和未验证部分见 [验证报告](docs/validation-report.md)。完整性清单为 [MANIFEST.sha256](MANIFEST.sha256)。
 
