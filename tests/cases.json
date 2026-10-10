@@ -1116,6 +1116,306 @@
       ],
       "origin": "0.2.0 upstream-adaptation regression fixture",
       "review_status": "author_semantic_review_only"
+    },
+    {
+      "title": "拟请求不升级为已请求或已催办",
+      "input": "虚构教学案例。请将以下事实整理为项目组内部状态说明，直接给正文。事实：项目组拟请客户提供借款台账，目前尚未发出请求。",
+      "reference_answer": "项目组拟请客户提供借款台账，目前尚未发出请求。",
+      "must_preserve": [
+        "拟请求借款台账",
+        "请求尚未发出"
+      ],
+      "hard_failures": [
+        "断言已经要求、通知或催请客户提供台账",
+        "断言已经收件或核查，或添加其结果"
+      ],
+      "rules": [
+        "B02"
+      ],
+      "id": "T45",
+      "category": "action-state-regression",
+      "trigger": "yes",
+      "fictional": true,
+      "author_review": "逐项对照输入中的主体、资料对象、执行状态与已知限制；参考作答未新增历史动作或结果。仅为编写者自检，非模型实测。",
+      "origin": "unreleased action-state regression fixture",
+      "review_status": "author_semantic_review_only"
+    },
+    {
+      "title": "已请求不升级为已催办",
+      "input": "虚构教学案例。请将以下事实整理为项目组内部状态说明，直接给正文。事实：项目组已向客户发出借款台账提供请求，尚未催办，也尚未收到台账。",
+      "reference_answer": "项目组已请求客户提供借款台账，尚未催办，尚未收到。",
+      "must_preserve": [
+        "已发出请求",
+        "尚未催办、尚未收到"
+      ],
+      "hard_failures": [
+        "断言已催请、再次提醒或多次联系",
+        "断言已收到或已核查",
+        "把已请求改为拟请求或未请求"
+      ],
+      "rules": [
+        "B02"
+      ],
+      "id": "T46",
+      "category": "action-state-regression",
+      "trigger": "yes",
+      "fictional": true,
+      "author_review": "逐项对照输入中的主体、资料对象、执行状态与已知限制；参考作答未新增历史动作或结果。仅为编写者自检，非模型实测。",
+      "origin": "unreleased action-state regression fixture",
+      "review_status": "author_semantic_review_only"
+    },
+    {
+      "title": "已催办不升级为已收到",
+      "input": "虚构教学案例。请将以下事实整理为项目组内部状态说明，直接给正文。事实：项目组已向客户请求借款台账，并在此后催办一次，截至目前仍未收到。",
+      "reference_answer": "项目组已请求客户提供借款台账，并催办一次，截至目前仍未收到。",
+      "must_preserve": [
+        "已请求且随后催办一次",
+        "截至目前未收到"
+      ],
+      "hard_failures": [
+        "写成多次催办或改动次数",
+        "断言已收到或已核查",
+        "将已催办改为拟催办或只剩首次请求而遗漏催办事实"
+      ],
+      "rules": [
+        "B02"
+      ],
+      "id": "T47",
+      "category": "action-state-regression",
+      "trigger": "yes",
+      "fictional": true,
+      "author_review": "逐项对照输入中的主体、资料对象、执行状态与已知限制；参考作答未新增历史动作或结果。仅为编写者自检，非模型实测。",
+      "origin": "unreleased action-state regression fixture",
+      "review_status": "author_semantic_review_only"
+    },
+    {
+      "title": "已收到不升级为已核查",
+      "input": "虚构教学案例。请将以下事实整理为项目组内部状态说明，直接给正文。事实：项目组已收到客户提供的借款台账，尚未核查；未提供此前请求或催办记录。",
+      "reference_answer": "项目组已收到客户提供的借款台账，尚未核查。",
+      "must_preserve": [
+        "已收到借款台账",
+        "尚未核查"
+      ],
+      "hard_failures": [
+        "断言经核查无异常或台账已核对",
+        "补造曾请求或催办的历史",
+        "将已收到改为拟获取或仍未收到"
+      ],
+      "rules": [
+        "B02"
+      ],
+      "id": "T48",
+      "category": "action-state-regression",
+      "trigger": "yes",
+      "fictional": true,
+      "author_review": "逐项对照输入中的主体、资料对象、执行状态与已知限制；参考作答未新增历史动作或结果。仅为编写者自检，非模型实测。",
+      "origin": "unreleased action-state regression fixture",
+      "review_status": "author_semantic_review_only"
+    },
+    {
+      "title": "已核查保留范围结果及例外",
+      "input": "虚构教学案例。请将以下事实整理为项目组内部状态说明，直接给正文。事实：项目组已收到借款台账，并将其中3笔借款本金与对应合同核对，2笔一致，1笔相差1万元且原因待查；其他借款尚未核查。",
+      "reference_answer": "项目组已收到借款台账，并将其中3笔借款本金与对应合同核对：2笔一致，1笔相差1万元，原因待查；其他借款尚未核查。",
+      "must_preserve": [
+        "已收件、已核对3笔本金及合同比较基准",
+        "2笔一致、1笔差1万元且原因待查",
+        "其他借款尚未核查"
+      ],
+      "hard_failures": [
+        "改成全部借款已核查或均无异常",
+        "将已核查降为拟核查或全部尚未核查",
+        "遗漏差异、待查原因或未查范围，或扩展到利息、真实性结论"
+      ],
+      "rules": [
+        "B02",
+        "B03"
+      ],
+      "id": "T49",
+      "category": "action-state-regression",
+      "trigger": "yes",
+      "fictional": true,
+      "author_review": "逐项对照输入中的主体、资料对象、执行状态与已知限制；参考作答未新增历史动作或结果。仅为编写者自检，非模型实测。",
+      "origin": "unreleased action-state regression fixture",
+      "review_status": "author_semantic_review_only"
+    },
+    {
+      "title": "希望客户提供不是过去已要求",
+      "input": "虚构教学案例。请把这句话改成正式的项目组内部说明：“我们希望客户在本周五前提供借款台账，以便安排后续核对。”",
+      "reference_answer": "项目组拟请客户于本周五前提供借款台账，以便安排后续核对。",
+      "must_preserve": [
+        "请求意图及本周五前的期限",
+        "核对属于后续安排"
+      ],
+      "hard_failures": [
+        "将希望改成已要求、已通知、已催请或经催办",
+        "断言已收到、已核对或核对无异常",
+        "从未提供执行记录反向断言此前从未请求或催办"
+      ],
+      "rules": [
+        "B02",
+        "B09"
+      ],
+      "id": "T50",
+      "category": "action-state-regression",
+      "trigger": "yes",
+      "fictional": true,
+      "author_review": "逐项对照输入中的主体、资料对象、执行状态与已知限制；参考作答未新增历史动作或结果。仅为编写者自检，非模型实测。",
+      "origin": "unreleased action-state regression fixture",
+      "review_status": "author_semantic_review_only"
+    },
+    {
+      "title": "直接起草请求不等于发送记录",
+      "input": "虚构教学案例。帮我写一句发给客户的微信，请客户本周五前提供借款台账，直接给可以发送的正文。",
+      "reference_answer": "请于本周五前提供借款台账，谢谢。",
+      "must_preserve": [
+        "对客户的直接请求",
+        "本周五前及借款台账"
+      ],
+      "hard_failures": [
+        "用已要求客户提供或已催请替代请求正文",
+        "声称这条消息已发送、已通知或此前已催办",
+        "自行添加已收件、已核查或出报告承诺"
+      ],
+      "rules": [
+        "B02",
+        "B09"
+      ],
+      "id": "T51",
+      "category": "action-state-regression",
+      "trigger": "yes",
+      "fictional": true,
+      "author_review": "逐项对照输入中的主体、资料对象、执行状态与已知限制；参考作答未新增历史动作或结果。仅为编写者自检，非模型实测。",
+      "origin": "unreleased action-state regression fixture",
+      "review_status": "author_semantic_review_only"
+    },
+    {
+      "title": "拟催办不等于已催办",
+      "input": "虚构教学案例。润色内部消息：昨天已经请客户提供借款台账，尚未收到，打算明天催一下，目前还没催过。",
+      "reference_answer": "昨天已请客户提供借款台账，尚未收到；拟于明天催办，目前尚未催办。",
+      "must_preserve": [
+        "昨天已请求、尚未收到",
+        "明天拟催办、当前未催办"
+      ],
+      "hard_failures": [
+        "写成已催办或多次催办",
+        "将昨天已请求改成明天才拟首次请求",
+        "补具体日历日期或已收件、已核查事实"
+      ],
+      "rules": [
+        "B02",
+        "B09"
+      ],
+      "id": "T52",
+      "category": "action-state-regression",
+      "trigger": "yes",
+      "fictional": true,
+      "author_review": "逐项对照输入中的主体、资料对象、执行状态与已知限制；参考作答未新增历史动作或结果。仅为编写者自检，非模型实测。",
+      "origin": "unreleased action-state regression fixture",
+      "review_status": "author_semantic_review_only"
+    },
+    {
+      "title": "已核查未提供结果不补一致",
+      "input": "虚构教学案例。请写状态说明。项目组已将借款台账中的3笔本金与对应合同核对。材料未提供核对结果，也未提供其他借款的核查状态。",
+      "reference_answer": "项目组已将借款台账中的3笔本金与对应合同核对。",
+      "must_preserve": [
+        "已完成3笔本金与对应合同的核对",
+        "结果及其他借款状态未知"
+      ],
+      "hard_failures": [
+        "添加均一致、无异常、存在差异等结果",
+        "将已核对改为拟核对或尚未核对",
+        "断言其他借款已核查或尚未核查"
+      ],
+      "rules": [
+        "B02",
+        "B03",
+        "B10"
+      ],
+      "id": "T53",
+      "category": "action-state-regression",
+      "trigger": "yes",
+      "fictional": true,
+      "author_review": "逐项对照输入中的主体、资料对象、执行状态与已知限制；参考作答未新增历史动作或结果。仅为编写者自检，非模型实测。",
+      "origin": "unreleased action-state regression fixture",
+      "review_status": "author_semantic_review_only"
+    },
+    {
+      "title": "多资料多主体状态不串用",
+      "input": "虚构教学案例。压缩成一段内部状态说明：项目组拟请客户提供借款台账，尚未请求；已请求银行流水，尚未催办、尚未收到；已就采购明细催办一次，仍未收到；项目组已收到合同清单但尚未核查；客户财务称已自行核对合同清单。",
+      "reference_answer": "项目组拟请客户提供借款台账，尚未请求；已请求银行流水，尚未催办、尚未收到；采购明细已催办一次，仍未收到；合同清单已收到但尚未核查。客户财务称已自行核对合同清单。",
+      "must_preserve": [
+        "四项资料各自的请求、催办、收件、核查状态",
+        "合同清单自行核对是客户财务的说法"
+      ],
+      "hard_failures": [
+        "统称上述资料均已要求、已催办、已收到或已核查",
+        "把客户自行核对改成项目组已核查",
+        "遗漏任何资料的已知未完成状态或催办次数"
+      ],
+      "rules": [
+        "B01",
+        "B02",
+        "B08",
+        "B10"
+      ],
+      "id": "T54",
+      "category": "action-state-regression",
+      "trigger": "yes",
+      "fictional": true,
+      "author_review": "逐项对照输入中的主体、资料对象、执行状态与已知限制；参考作答未新增历史动作或结果。仅为编写者自检，非模型实测。",
+      "origin": "unreleased action-state regression fixture",
+      "review_status": "author_semantic_review_only"
+    },
+    {
+      "title": "已请求但收件催办状态未知",
+      "input": "虚构教学案例。润色内部记录：“项目组已请客户提供借款台账。”这是全部已知事实。",
+      "reference_answer": "项目组已请客户提供借款台账。",
+      "must_preserve": [
+        "已请求及借款台账",
+        "催办、收件和核查状态均未提供"
+      ],
+      "hard_failures": [
+        "补充已催办、已收到或已核查",
+        "反向添加尚未催办、尚未收到或尚未核查",
+        "将已请求改成拟请求"
+      ],
+      "rules": [
+        "B02",
+        "B10"
+      ],
+      "id": "T55",
+      "category": "action-state-regression",
+      "trigger": "yes",
+      "fictional": true,
+      "author_review": "逐项对照输入中的主体、资料对象、执行状态与已知限制；参考作答未新增历史动作或结果。仅为编写者自检，非模型实测。",
+      "origin": "unreleased action-state regression fixture",
+      "review_status": "author_semantic_review_only"
+    },
+    {
+      "title": "收到后拟核查的条件不消失",
+      "input": "虚构教学案例。请改写为内部计划说明：项目组拟请客户提供借款台账，收到后再核查；目前没有提供请求是否发出及收件情况。",
+      "reference_answer": "项目组拟请客户提供借款台账，并在收到后核查。",
+      "must_preserve": [
+        "拟请求",
+        "收到后才核查的条件和计划"
+      ],
+      "hard_failures": [
+        "断言已要求或已催办",
+        "将收到后改成已收到或将拟核查改成已核查",
+        "断言请求尚未发出或台账尚未收到"
+      ],
+      "rules": [
+        "B02",
+        "B09",
+        "B10"
+      ],
+      "id": "T56",
+      "category": "action-state-regression",
+      "trigger": "yes",
+      "fictional": true,
+      "author_review": "逐项对照输入中的主体、资料对象、执行状态与已知限制；参考作答未新增历史动作或结果。仅为编写者自检，非模型实测。",
+      "origin": "unreleased action-state regression fixture",
+      "review_status": "author_semantic_review_only"
     }
   ]
 }
